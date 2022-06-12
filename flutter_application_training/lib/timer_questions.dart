@@ -44,6 +44,29 @@ class _HomePageWidgetState extends State<HomePageWidget> {
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
+              Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(0, 20, 0, 20),
+                child: FFButtonWidget(
+                  onPressed: () {
+                    print('Button pressed ...');
+                  },
+                  text: 'Start',
+                  options: FFButtonOptions(
+                    width: 130,
+                    height: 40,
+                    color: FlutterFlowTheme.of(context).alternate,
+                    textStyle: FlutterFlowTheme.of(context).subtitle2.override(
+                      fontFamily: 'Poppins',
+                      color: Colors.white,
+                    ),
+                    borderSide: BorderSide(
+                      color: Colors.transparent,
+                      width: 1,
+                    ),
+                    borderRadius: 12,
+                  ),
+                ),
+              ),
               Align(
                 alignment: AlignmentDirectional(0, 0),
                 child: Padding(
