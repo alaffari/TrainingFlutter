@@ -1,104 +1,98 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-//import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-//import 'package:dio/dio.dart';
+import 'package:flutter/widgets.dart';
+import 'package:flutter/material.dart';
 import 'NavBar.dart';
-
-class StudetResult extends StatefulWidget {
-
-  @override
-  _HomePageState createState() => _HomePageState();
+void main()
+{
+  runApp(StudetResult());
 }
 
-class _HomePageState extends State<StudetResult> {
-  //final dio = new Dio(); // for http requests
+class StudetResult extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        home:Directionality(textDirection: TextDirection.rtl, child: Scaffold(
-            drawer: NavBar(),
-            appBar: AppBar(
-              title: Text('Active Student'),
+      title: 'نتائج الطلاب',
 
-            ),
-            body: ListView(
-              scrollDirection: Axis.vertical,
-              children: <Widget>[
-                Padding(
-                  padding: const EdgeInsets.all(16.0),
-                  child: Container(
-                    child: new FittedBox(
-                      child: Material(
-                          color: Colors.white,
-                          elevation: 14.0,
-                          borderRadius: BorderRadius.circular(24.0),
-                          shadowColor: Color(0x802196F3),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: <Widget>[
-                              Container(
-                                child: Padding(
-                                  padding: const EdgeInsets.only(left: 16.0),
-                                  child: myDetailsContainer1(),
-                                ),
-                              ),
+      home: MyHomePage(),
+    );
+  }
+}
 
-                              Container(
-                                width: 250,
-                                height: 200,
-                                child: ClipRRect(
-                                  borderRadius: new BorderRadius.circular(24.0),
-                                  child: Image(
-                                    fit: BoxFit.contain,
-                                    alignment: Alignment.topRight,
-                                    image: NetworkImage(
-                                        "https://images.unsplash.com/photo-1495147466023-ac5c588e2e94?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80"),
-                                  ),
-                                ),),
-                            ],)
-                      ),
-                    ),
+class MyHomePage extends StatefulWidget {
+  @override
+  _MyHomePageState createState()
+  {
+    return _MyHomePageState();
+  }
+}
+
+class _MyHomePageState extends State<MyHomePage> {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp (
+      home:Directionality(textDirection: TextDirection.rtl, child: Scaffold(
+
+      drawer: NavBar(),
+      appBar: AppBar(
+        title: Text(" نتائج الطلاب"),
+      ),
+      body:Card(
+        child:Container(
+          height: 100,
+          color: Colors.white,
+          child: Row(
+            children: [
+              Center(
+                child: Padding(
+                  padding: EdgeInsets.all(10),
+                  child: Expanded(
+                    child: Image.asset('assets/images/elec.jpg'),
+
+                    flex:2 ,
                   ),
                 ),
+              ),
+              Expanded(
+                child:Container(
+                  alignment: Alignment.topLeft,
+                  child: Column(
+                    children: [
+                      Expanded(
+                        flex: 5,
+                        child: ListTile(
+                          title: Text("اسم الطالب"),
+                          subtitle: Text("الصف"),
+                        ),
+                      ),
+                      Expanded(
+                        flex: 5,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            TextButton(
+                              child:Text("تفاصيل"),
+                              onPressed: ()
+                              {},
+                            ),
 
-              ],
-            )
+                            SizedBox(width: 8,)
+                          ],
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+                flex:8 ,
+              ),
+            ],
+          ),
         ),
-        )
-      //appBar: _buildBar(context),
-
+        elevation: 8,
+        margin: EdgeInsets.all(10),
+      ),
+    ),
+      ),
     );
   }
-
-  Widget myDetailsContainer1() {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      children: <Widget>[
-        Padding(
-          padding: const EdgeInsets.only(left: 8.0),
-          child: Container(child: Text("اسم الطالب",
-            style: TextStyle(color: Color(0xffe6020a), fontSize: 24.0,fontWeight: FontWeight.bold),)),
-        ),
-        Padding(
-          padding: const EdgeInsets.only(left: 8.0),
-          child: Container(
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: <Widget>[
-                  Container(child: Text("الفصلi",
-                    style: TextStyle(color: Colors.black54, fontSize: 18.0,),)),
-
-                  Container(child: Text("المواد",
-                    style: TextStyle(color: Colors.black54, fontSize: 18.0,),)),
-                ],)),
-        ),
-        Container(child: Text("تفاصيل",
-          style: TextStyle(color: Colors.black54, fontSize: 18.0,fontWeight: FontWeight.bold),)),
-      ],
-    );
-  }
-
-
-
-
-
 }
