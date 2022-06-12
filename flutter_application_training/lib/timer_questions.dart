@@ -21,12 +21,15 @@ class _HomePageWidgetState extends State<HomePageWidget> {
       appBar: AppBar(
         backgroundColor: FlutterFlowTheme.of(context).primaryColor,
         automaticallyImplyLeading: false,
-        title: Text(
-          'Timer Questions',
-          style: FlutterFlowTheme.of(context).title2.override(
-            fontFamily: 'Poppins',
-            color: Colors.white,
-            fontSize: 22,
+        title: Align(
+          alignment: AlignmentDirectional(0, 0),
+          child: Text(
+            'Timer Questions',
+            style: FlutterFlowTheme.of(context).title2.override(
+              fontFamily: 'Poppins',
+              color: Colors.white,
+              fontSize: 22,
+            ),
           ),
         ),
         actions: [],
