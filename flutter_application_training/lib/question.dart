@@ -34,11 +34,13 @@ class _HomeState extends State<Home> {
             body: Column(
               children: [
                 Container(
-                    color: Colors.blue,
+                    decoration: BoxDecoration(
+                        color: Colors.blue,
+                        borderRadius: BorderRadius.circular(5)),
                     alignment: Alignment.center,
                     padding: EdgeInsets.all(20),
                     margin: EdgeInsets.only(top: 30, left: 10, right: 10),
-                    child: Text("QUESTION ?",
+                    child: Text("QUESTION ?!",
                         style: TextStyle(
                           fontSize: 20,
                           color: Colors.white,
@@ -50,7 +52,34 @@ class _HomeState extends State<Home> {
                       children: options.map((option) {
                         return Card(child: ListTile(title: Text(option)));
                       }).toList(),
-                    ))
+                    )),
+                Container(
+                    child: Row(
+                  children: [
+                    Container(
+                        padding: EdgeInsets.all(20),
+                        margin: EdgeInsets.only(top: 30, left: 50, right: 10),
+                        decoration: BoxDecoration(
+                            color: Colors.blue,
+                            borderRadius: BorderRadius.circular(5)),
+                        child: Text("Back",
+                            style: TextStyle(
+                              fontSize: 20,
+                              color: Colors.white,
+                            ))),
+                    Container(
+                        decoration: BoxDecoration(
+                            color: Colors.blue,
+                            borderRadius: BorderRadius.circular(5)),
+                        padding: EdgeInsets.all(20),
+                        margin: EdgeInsets.only(top: 30, left: 230, right: 10),
+                        child: Text("Next",
+                            style: TextStyle(
+                              fontSize: 20,
+                              color: Colors.white,
+                            )))
+                  ],
+                ))
               ],
             )));
   }
